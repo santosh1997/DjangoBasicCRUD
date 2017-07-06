@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Empolyee Details</title>
+</head>
+<body>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+table{
+	width : 90%;
+	margin : 5% 5% 5% 5%; 
+}
+h1{
+	margin : 5%;
+}
+</style>
+{% if all_emp %}
+	<h1 align="center">EMPLOYEE DETAILS</h1>
+	<table>
+	<tr><th>Employee ID</th><th>First Name</th><th>Last Name</th><th>Department</th><th>College</th><th>Mobile Number</th><th>Mail</th><th>Photo</th><th>Resume</th><th>Delete</th></tr>
+	{% for emp in all_emp %}
+		<tr><td>{{ emp.id }}</td><td>{{ emp.first_name }}</td><td>{{ emp.last_name  }}</td><td>{{ emp.department }}</td><td>{{ emp.college }}</td><td>{{ emp.ph }}</td><td>{{ emp.mail }}</td><td><a href="../../{{ emp.emp_pic }}">Photo</a></td><td><a href="../../{{ emp.resume }}">Resume</a></td><td><a href="/login/admindelete/{{ emp.id }}/">Delete</a></td></tr>
+	{% endfor %}
+	</table>
+{% else %}
+	<h1 align="center"> No Employees Register </h1>
+{% endif %}
+</body>
+</html>
